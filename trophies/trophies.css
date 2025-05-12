@@ -1,0 +1,59 @@
+body {
+    font-family: 'Arial', sans-serif; /* Use a more suitable font */
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4; /* Light gray background */
+    color: #333; /* Dark gray text */
+  }
+  
+  header {
+    background-color: #fff;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+  }
+  
+  #tournamentSelect {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  #tournamentContent {
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap; /* Allow items to wrap onto multiple lines */
+    justify-content: center; /* Center items horizontally */
+  }
+  
+  .trophy-item {
+    width: 450px; /* Adjust width as needed */
+    margin: 20px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .trophy-item img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+  }
+  
+  .video-placeholder iframe {
+    width: 100%;
+    height: auto;
+  }
+  
+  .trophy-item p {
+      line-height: 1.6;
+  }
+  
+  @media (max-width: 768px) { /* Adjust for smaller screens */
+    .trophy-item {
+      width: 90%; /* Make items take almost full width on smaller screens */
+      margin: 10px auto; /* Center the items */
+    }
+  }
