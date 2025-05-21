@@ -1,27 +1,40 @@
 <!DOCTYPE html>
-<html>
+<html lang="ru">
 <head>
-<title>Трофеи Реал Мадрид</title>
-<link rel="stylesheet" href="trophies.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Реал Мадрид - Трофеи</title>
+    <link rel="stylesheet" href="trophies.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <meta name="description" content="Все трофеи Реал Мадрида - история побед Королевского клуба">
 </head>
 <body>
-  <header>
-    <h1>Трофеи Реал Мадрид</h1>
-    <!-- Выпадающий список для выбора турнира -->
-    <select id="tournamentSelect">
-      <option value="champions-league">Лига Чемпионов</option>
-      <option value="la-liga">Ла Лига</option>
-      <option value="copa-del-rey">Кубок Испании</option>
-      <option value="club-world-cup">Клубный ЧМ</option>
-      <option value="supercopa-uefa">Суперкубок УЕФА</option>
-      <option value="supercopa-espana">Суперкубок Испании</option>
-    </select>
-  </header>
+    <div class="trophy-section">
+        <h1>Трофеи Реал Мадрид</h1>
+        
+        <!-- Добавлен раздел для графика -->
+        <div class="chart-container">
+            <div class="chart-header">
+                <h2>История успеха Королевского клуба в цифрах</h2>
+            </div>
+            <canvas id="trophies-chart"></canvas>
+        </div>
 
-  <!-- Здесь будет отображаться контент о выбранном турнире -->
-  <main id="tournamentContent">
-    </main>
+        <div class="trophy-category">
+            <h2>Международные трофеи</h2>
+            <div class="trophy-grid" id="international-trophies">
+                <!-- Заполняется через JS -->
+            </div>
+        </div>
+        
+        <div class="trophy-category">
+            <h2>Национальные трофеи</h2>
+            <div class="trophy-grid" id="domestic-trophies">
+                <!-- Заполняется через JS -->
+            </div>
+        </div>
+    </div>
 
-  <script src="trophies.js"></script>
+    <script src="trophies.js"></script>
 </body>
 </html>
