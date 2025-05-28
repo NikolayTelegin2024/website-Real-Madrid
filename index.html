@@ -3,62 +3,64 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Real Madrid CF - Официальный сайт</title>
+    <title>Real Madrid - Официальный фан-сайт</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
-        <h1>Real Madrid CF</h1>
+        <div class="club-header">
+            <h1>Real Madrid</h1>
+            <p class="club-motto">¡Hala Madrid y nada más!</p>
+        </div>
         <nav>
             <ul>
-                <li><a href="#">Новости</a></li>
-                <li><a href="#">Трофеи</a></li>
-                <li><a href="#">История</a></li>
-                <li><a href="#">Легенды</a></li>
-                <li><a href="#">Состав</a></li>
-                <li><a href="#">Турниры</a></li>
+                <li><a href="index.html" class="active">Главная</a></li>
+                <li><a href="history/history.html">История</a></li>
+                <li><a href="squad.html">Состав</a></li>
+                <li><a href="turnir/turnir.html">Турниры</a></li>
+                <li><a href="trophies/trophies.html">Трофеи</a></li>
+                <li><a href="legends/legends.html">Легенды</a></li>
             </ul>
         </nav>
     </header>
 
     <main>
-        <section class="news">
-            <h2>Последние новости</h2>
-            <article class="news-item">
-                <h3>Заголовок новости 1</h3>
-                <p>Краткое описание новости 1.  Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                <a href="#">Читать далее</a>
-            </article>
-            <article class="news-item">
-                <h3>Заголовок новости 2</h3>
-                <p>Краткое описание новости 2.  Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                <a href="#">Читать далее</a>
-            </article>
-            <article class="news-item">
-                <h3>Заголовок новости 3</h3>
-                <p>Краткое описание новости 3. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
-                <a href="#">Читать далее</a>
-            </article>
-            <a href="#" class="more-news">Все новости</a>
+        <section class="management-section">
+            <h2>Руководство клуба</h2>
+            <div class="management-grid"></div>
         </section>
 
-        <section class="highlights">
-            <h2>Актуальное</h2>
-            <div class="highlight-item">
-              <img src="" alt="Фотография или видео">
+        <section class="stadium-section">
+            <h2>Сантьяго Бернабеу</h2>
+            <div class="stadium-container">
+                <img src="https://images.adsttc.com/media/images/6526/e42d/0e26/f341/a456/3e1a/large_jpg/l35-architects-sobre-la-remodelacion-del-estadio-santiago-bernabeu-de-madrid-a-pocos-meses-de-finalizar_6.jpg?1697047618" alt="Сантьяго Бернабеу" class="stadium-photo">
+                <p class="stadium-description">Легендарный стадион и наша гордость - дом королевского клуба</p>
             </div>
-            <div class="highlight-item">
-              <img src="" alt="Фотография или видео">
-            </div>
-            <div class="highlight-item">
-              <img src="" alt="Фотография или видео">
+            <div class="team-photo">
+                <img src="https://img-s-msn-com.akamaized.net/tenant/amp/entityid/AA1ygO4P.img?w=980&h=654&m=4&q=50" alt="Фото команды Реал Мадрид">
+                <p class="team-photo-caption">Команда Реал Мадрид на стадионе Сантьяго Бернабеу</p>
             </div>
         </section>
 
+        <section class="news-section">
+            <h2>Самые важные последние новости</h2>
+            <div class="news-grid"></div>
+        </section>
+        <section class="more-news-buttons">
+            <h2>Больше новостей</h2>
+            <div class="news-buttons-container">
+                <a href="https://www.realmadrid.com/ru/news" target="_blank" class="btn btn-primary">Официальные новости</a>
+                <a href="https://www.championat.com/football/_realmadrid.html" target="_blank" class="btn btn-gold">Чемпионат.com</a>
+                <a href="https://www.sports.ru/real/" target="_blank" class="btn btn-primary">Sports.ru</a>
+                <a href="https://vk.com/realmadrid_news" target="_blank" class="btn btn-gold">Vk-российский</a>
+            </div>
+        </section>
     </main>
 
     <footer>
-        <p>&copy; 2023 Real Madrid CF. Все права защищены.</p>
+        <p>&copy; <span id="current-year"></span> Фан-сайт Real Madrid. Неофициальный сайт.</p>
     </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
