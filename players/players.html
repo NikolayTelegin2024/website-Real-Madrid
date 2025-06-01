@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Состав Реал Мадрид</title>
+    <link rel="stylesheet" href="players.css">
+</head>
+<body>
+    <a href="../index.html" class="home-button">На Главную</a>
+    <div class="container">
+        <h1>Состав Реал Мадрид</h1>
+        
+        <div class="player-card">
+            <button class="nav-button prev-btn">←</button>
+            <button class="nav-button next-btn">→</button>
+            
+            <div class="player-header">
+                <div class="player-photos">
+                    <img src="" alt="Фото игрока" class="player-real-photo">
+                    <img src="" alt="Фото в FIFA" class="player-fifa-photo">
+                </div>
+                <div class="player-info">
+                    <h2 class="player-name"></h2>
+                    <p class="player-number"></p>
+                    <div class="player-country">
+                        <img class="country-flag" src="" alt="Флаг">
+                        <span class="country-name"></span>
+                    </div>
+                    <p class="player-position"></p>
+                    <p class="transfer-date"></p>
+                </div>
+            </div>
+            
+            <div class="player-stats">
+                <h3>Статистика</h3>
+                <div class="stats-content">
+                    <!-- Будет заполняться через JS -->
+                </div>
+            </div>
+            
+            <div class="player-trophies">
+                <h3>Награды в Реале</h3>
+                <div class="trophies-grid">
+                    <!-- Будет заполняться через JS -->
+                </div>
+            </div>
+            
+            <div class="player-description">
+                <h3>Описание</h3>
+                <p class="description-text"></p>
+            </div>
+        </div>
+        
+        <div class="player-list">
+            <h3>Все игроки</h3>
+            <div class="player-categories">
+                <button class="category-btn active" data-category="all">Все</button>
+                <button class="category-btn" data-category="goalkeeper">Вратари</button>
+                <button class="category-btn" data-category="defender">Защитники</button>
+                <button class="category-btn" data-category="midfielder">Полузащитники</button>
+                <button class="category-btn" data-category="forward">Нападающие</button>
+            </div>
+            <div class="players-grid" id="players-list">
+                <!-- Будет заполняться через JS -->
+            </div>
+        </div>
+    </div>
+    
+    <script src="players.js"></script>
+</body>
+</html>

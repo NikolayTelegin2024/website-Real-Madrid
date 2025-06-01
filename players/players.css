@@ -1,0 +1,314 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+    color: #333;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    position: relative;
+}
+/* Добавьте это в конец файла history.css */
+.home-button {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    padding: 10px 15px;
+    background-color: #FEBE10;
+    color: #00529F;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.home-button:hover {
+    background-color: #00529F;
+    color: white;
+    transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+    .home-button {
+        top: 10px;
+        left: 10px;
+        padding: 8px 12px;
+        font-size: 0.9em;
+    }
+}
+
+h1 {
+    text-align: center;
+    color: #00529F;
+    margin-bottom: 30px;
+}
+
+.player-number {
+    font-size: 18px;
+    font-weight: bold;
+    color: #00529F;
+    margin: 5px 0;
+}
+
+.player-card {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-bottom: 30px;
+    position: relative;
+}
+
+.player-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.player-photos {
+    display: flex;
+    margin-right: 30px;
+}
+
+.player-country {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 5px 0;
+}
+
+.country-flag {
+    width: 24px;
+    height: 16px;
+    border: 1px solid #ddd;
+    border-radius: 2px;
+}
+
+.country-name {
+    font-size: 14px;
+    color: #555;
+}
+
+.player-photos img {
+    width: 120px;
+    height: 160px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-right: 10px;
+    border: 1px solid #ddd;
+}
+
+.player-info h2 {
+    margin: 0;
+    color: #00529F;
+}
+
+.player-info p {
+    margin: 5px 0;
+    color: #666;
+}
+
+.player-stats, .player-trophies, .player-description {
+    margin-bottom: 20px;
+}
+
+.player-stats h3, .player-trophies h3, .player-description h3 {
+    border-bottom: 2px solid #00529F;
+    padding-bottom: 5px;
+    color: #00529F;
+}
+
+.trophies-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.trophy-item {
+    text-align: center;
+}
+
+.trophy-item img {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+}
+
+.trophy-item p {
+    margin: 5px 0 0;
+    font-size: 12px;
+}
+
+.nav-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 50px;
+    height: 50px;
+    background-color: #00529F;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    z-index: 10;
+}
+
+.nav-button:hover {
+    background-color: #003366;
+    transform: translateY(-50%) scale(1.1);
+}
+
+.prev-btn {
+    left: -25px;
+}
+
+.next-btn {
+    right: -25px;
+}
+
+.player-list {
+    margin-top: 30px;
+}
+
+.player-categories {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.category-btn {
+    padding: 8px 15px;
+    background-color: #e0e0e0;
+    color: #333;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.category-btn.active {
+    background-color: #00529F;
+    color: white;
+}
+
+.category-btn:hover {
+    background-color: #00529F;
+    color: white;
+}
+
+.players-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 10px;
+}
+
+.player-item {
+    padding: 10px;
+    background-color: #00529F;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center;
+}
+
+.player-item:hover {
+    background-color: #003366;
+    transform: translateY(-3px);
+}
+
+.player-category {
+    margin-bottom: 20px;
+}
+
+.player-category h4 {
+    color: #00529F;
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #00529F;
+}
+/* Добавьте это в players.css */
+.stats-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.stat-item {
+    background-color: #f0f8ff;
+    border-radius: 8px;
+    padding: 12px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.stat-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 8px rgba(0, 82, 159, 0.1);
+}
+
+.stat-name {
+    font-weight: bold;
+    color: #00529F;
+    margin-bottom: 5px;
+    font-size: 14px;
+    text-transform: capitalize;
+}
+
+.stat-value {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+}
+
+/* Для вратарей - особый стиль */
+.goalkeeper-stats .stat-item {
+    background-color: #fff0f5;
+}
+
+.goalkeeper-stats .stat-name {
+    color: #c71585;
+}
+
+/* Для защитников */
+.defender-stats .stat-item {
+    background-color: #f0fff0;
+}
+
+.defender-stats .stat-name {
+    color: #2e8b57;
+}
+
+/* Для полузащитников */
+.midfielder-stats .stat-item {
+    background-color: #fffaf0;
+}
+
+.midfielder-stats .stat-name {
+    color: #daa520;
+}
+
+/* Для нападающих */
+.forward-stats .stat-item {
+    background-color: #fff8dc;
+}
+
+.forward-stats .stat-name {
+    color: #cd853f;
+}
