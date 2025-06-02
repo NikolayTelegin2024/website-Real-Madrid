@@ -1,13 +1,31 @@
-/* Основные переменные цветов с градиентами */
+/* Основные переменные цветов в RGBA */
 :root {
-    --rm-red: #a40000;
-    --rm-dark-red: #701C1C;
-    --rm-gold: #FFD700;
-    --rm-light-gold: #FEBE10;
-    --rm-dark: #0a0a0a;
-    --rm-light: #f2f2f2;
-    --rm-gradient: linear-gradient(135deg, var(--rm-red), var(--rm-dark-red));
-    --rm-gold-gradient: linear-gradient(135deg, var(--rm-gold), var(--rm-light-gold));
+    --rm-red: rgba(164, 0, 0, 1);
+    --rm-dark-red: rgba(112, 28, 28, 1);
+    --rm-gold: rgba(255, 215, 0, 1);
+    --rm-light-gold: rgba(254, 190, 16, 1);
+    --rm-dark: rgba(10, 10, 10, 1);
+    --rm-light: rgba(242, 242, 242, 1);
+    --rm-bg: rgba(255, 255, 255, 1);
+    --rm-text: rgba(51, 51, 51, 1);
+    --rm-card-bg: rgba(255, 255, 255, 1);
+    --rm-nav-bg: rgba(0, 0, 0, 0.5);
+    --rm-footer-text: rgba(255, 255, 255, 1);
+    --rm-gradient: linear-gradient(135deg, rgba(164, 0, 0, 1), rgba(112, 28, 28, 1));
+    --rm-gold-gradient: linear-gradient(135deg, rgba(255, 215, 0, 1), rgba(254, 190, 16, 1));
+}
+
+/* Темная тема */
+[data-theme="dark"] {
+    --rm-dark: rgb(178, 166, 166);
+    --rm-light: rgba(18, 18, 18, 1);
+    --rm-bg: rgba(26, 26, 26, 1);
+    --rm-text: rgba(224, 224, 224, 1);
+    --rm-card-bg: rgba(36, 36, 36, 1);
+    --rm-nav-bg: rgba(0, 0, 0, 0.7);
+    --rm-footer-text: rgb(9, 8, 8);
+    --rm-gradient: linear-gradient(135deg, rgba(138, 0, 0, 1), rgba(90, 21, 21, 1));
+    --rm-gold-gradient: linear-gradient(135deg, rgba(230, 194, 0, 1), rgba(212, 169, 16, 1));
 }
 
 /* Анимации */
@@ -23,66 +41,80 @@
     100% { transform: translateY(0); }
 }
 
-/* Типографика */
+/* Базовые стили */
 body {
     font-family: 'Arial', sans-serif;
     line-height: 1.6;
     margin: 0;
-    background-color: var(--rm-light);
-    color: var(--rm-dark);
+    background-color: var(--rm-bg);
+    color: var(--rm-text);
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 h1, h2, h3 {
     font-weight: 700;
 }
 
-h1 {
-    font-size: 3rem;
-}
+h1 { font-size: 2.5rem; }
+h2 { font-size: 2rem; }
+h3 { font-size: 1.5rem; }
 
-h2 {
-    font-size: 2rem;
-}
-
-h3 {
-    font-size: 1.5rem;
-}
-
-/* Кнопки */
-.btn {
-    display: inline-block;
-    padding: 1rem 2rem;
-    border-radius: 30px;
-    font-weight: 600;
-    text-transform: uppercase;
-    text-decoration: none;
-    color: white;
-    transition: all 0.3s ease;
-    border: none;
-    cursor: pointer;
-    font-size: 1rem;
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
-}
-
-.btn-primary {
+/* Шапка */
+.club-header {
     background: var(--rm-gradient);
+    padding: 2rem;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    position: relative;
 }
 
-.btn-primary:hover {
-    background: var(--rm-dark-red);
-    box-shadow: 0 8px 15px rgba(164, 0, 0, 0.3);
-    animation: pulse 1.2s infinite;
+.header-logo {
+    width: 200px;
+    height: 200px;
+    object-fit: contain;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.5));
+    animation: float 4s ease-in-out infinite;
 }
 
-.btn-gold {
-    background: var(--rm-gold-gradient);
-    color: var(--rm-dark);
+.header-titles {
+    text-align: left;
 }
 
-.btn-gold:hover {
-    background: var(--rm-light-gold);
-    box-shadow: 0 8px 15px rgba(254, 190, 16, 0.3);
-    animation: pulse 1.2s infinite;
+.club-header h1 {
+    font-size: 3rem;
+    margin: 0;
+    color: rgba(255, 255, 255, 1);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.club-motto {
+    font-size: 1.5rem;
+    color: var(--rm-gold);
+    font-style: italic;
+    margin-top: 1rem;
+}
+
+/* Блок времени */
+.madrid-time {
+    background: rgba(0, 0, 0, 0.7);
+    color: rgba(255, 255, 255, 1);
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-weight: bold;
+    display: inline-block;
+    margin-left: auto;
+    font-size: 1rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    position: absolute;
+    right: 20px;
+    top: 20px;
+}
+
+.madrid-time span {
+    color: var(--rm-light-gold);
 }
 
 /* Навигация */
@@ -99,8 +131,8 @@ nav ul {
 nav a {
     padding: 0.8rem 1.2rem;
     border-radius: 25px;
-    color: white;
-    background: rgba(0, 0, 0, 0.5);
+    color: rgba(255, 255, 255, 1);
+    background: var(--rm-nav-bg);
     transition: all 0.3s ease;
     text-decoration: none;
     font-weight: 600;
@@ -120,31 +152,46 @@ nav a.active {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-/* Заголовок */
-.club-header {
-    background: var(--rm-gradient);
-    padding: 3rem 2rem;
-    text-align: center;
+/* Кнопки */
+.btn {
+    display: inline-block;
+    padding: 1rem 2rem;
+    border-radius: 30px;
+    font-weight: 600;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: rgba(255, 255, 255, 1);
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
 }
 
-.club-header h1 {
-    font-size: 3rem;
-    margin: 0;
-    color: white;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-    animation: float 4s ease-in-out infinite;
+.btn-primary {
+    background: var(--rm-gradient)
 }
 
-.club-motto {
-    font-size: 1.5rem;
-    color: var(--rm-gold);
-    font-style: italic;
-    margin-top: 1rem;
+.btn-primary:hover {
+    background: var(--rm-dark-red);
+    box-shadow: 0 8px 15px rgba(164, 0, 0, 0.3);
+    animation: pulse 1.2s infinite;
+}
+
+.btn-gold {
+    background: var(--rm-gold-gradient);
+    color: var(--rm-dark);
+}
+
+.btn-gold:hover {
+    background: var(--rm-light-gold);
+    box-shadow: 0 8px 15px rgba(254, 190, 16, 0.3);
+    animation: pulse 1.2s infinite;
 }
 
 /* Карточки */
 .management-card, .news-card {
-    background-color: white;
+    background-color: var(--rm-card-bg);
     border-radius: 10px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     margin-bottom: 20px;
@@ -163,12 +210,53 @@ nav a.active {
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 
-/* Обновленные стили для секции стадиона */
+/* Секция руководства */
+.management-section h2 {
+    padding-left: 100px;
+    text-align: left;
+}
+
+.management-grid {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+    padding: 2rem;
+}
+
+.management-card {
+    flex: 1;
+    min-width: 280px;
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+}
+
+.management-card img {
+    border-bottom: 3px solid var(--rm-gold);
+}
+
+.management-card-content {
+    padding: 1.5rem;
+    flex-grow: 1;
+}
+
+.management-card h3 {
+    color: var(--rm-red);
+    margin-bottom: 0.5rem;
+}
+
+.management-card p {
+    margin: 0.3rem 0;
+    color: var(--rm-text);
+}
+
+/* Секция стадиона */
 .stadium-section {
     position: relative;
     padding: 4rem 2rem;
     background: url('https://www.thesun.co.uk/wp-content/uploads/2020/02/NINTCHDBPICT000447297248.jpg?strip=all&amp;quality=100&amp;w=1920&amp;h=1080&amp;crop=1') center/cover no-repeat scroll;
-    color: rgb(219, 247, 7);
+    color: rgba(219, 247, 7, 1);
     text-align: center;
     background-attachment: fixed;
     overflow: hidden;
@@ -188,7 +276,7 @@ nav a.active {
 .stadium-section h2 {
     position: relative;
     z-index: 2;
-    font-size: 3rem;
+    font-size: 2.5rem;
     color: var(--rm-gold);
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
     margin-bottom: 2rem;
@@ -220,9 +308,9 @@ nav a.active {
 .stadium-description, .team-photo-caption {
     position: relative;
     z-index: 2;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     font-weight: bold;
-    color: white;
+    color: rgba(255, 255, 255, 1);
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
     padding: 1rem;
     background: rgba(164, 0, 0, 0.7);
@@ -240,79 +328,27 @@ nav a.active {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 1.5rem;
+    padding: 2rem;
 }
 
 .news-card a {
     text-decoration: none;
-    color: var(--rm-dark);
+    color: var(--rm-text);
     display: block;
     padding: 1rem;
 }
 
-/* Сетка руководства */
-.management-grid {
-    display: flex;
-    justify-content: center;
-    gap: 2rem;
-    flex-wrap: wrap;
-    padding: 2rem;
-}
-
-.management-card {
-    flex: 1;
-    min-width: 300px;
-    max-width: 400px;
-    background-color: white;
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    margin-bottom: 20px;
-    overflow: hidden;
-    transition: transform 0.3s ease;
-    display: flex;
-    flex-direction: column;
-}
-
-.management-card img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-    border-bottom: 3px solid var(--rm-gold);
-}
-
-.management-card-content {
-    padding: 1.5rem;
-    flex-grow: 1;
-}
-
-.management-card h3 {
-    color: var(--rm-red);
-    margin-bottom: 0.5rem;
-}
-
-.management-card p {
-    margin: 0.3rem 0;
-    color: var(--rm-dark);
-}
-
-/* Футер */
-footer {
-    background-color: var(--rm-dark);
-    color: white;
-    text-align: center;
-    padding: 1rem 0;
-}
-
-/* Стили для секции с кнопками новостей */
+/* Кнопки новостей */
 .more-news-buttons {
     padding: 3rem 2rem;
     text-align: center;
-    background-color: white;
+    background-color: var(--rm-card-bg);
 }
 
 .more-news-buttons h2 {
     color: var(--rm-red);
     margin-bottom: 2rem;
-    font-size: 2.2rem;
+    font-size: 2rem;
 }
 
 .news-buttons-container {
@@ -330,38 +366,133 @@ footer {
     max-width: 250px;
 }
 
+/* Футер */
+footer {
+    background-color: var(--rm-dark);
+    color: var(--rm-footer-text);
+    text-align: center;
+    padding: 2rem 0;
+}
+
+/* Переключатель темы */
+.theme-toggle {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: var(--rm-gold-gradient);
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    transition: transform 0.3s ease;
+}
+
+.theme-toggle:hover {
+    transform: scale(1.1);
+}
+
+.theme-icon {
+    font-size: 1.5rem;
+}
+
 /* Адаптивность */
-@media (max-width: 768px) {
-    h1 {
-        font-size: 2.5rem;
+@media (max-width: 1024px) {
+    .club-header {
+        flex-direction: row;
+        padding: 1.5rem;
     }
-    h2 {
-        font-size: 2rem;
+    
+    .header-logo {
+        width: 150px;
+        height: 150px;
     }
-    h3 {
-        font-size: 1.5rem;
+    
+    .club-motto {
+        font-size: 1.2rem;
     }
-    .news-grid {
-        grid-template-columns: 1fr;
-    }
-    .management-grid {
-        flex-direction: column;
-        align-items: center;
-    }
-    .management-card {
-        max-width: 100%;
-    }
+    
     .stadium-section h2 {
         font-size: 2rem;
     }
-    .stadium-description, .team-photo-caption {
-        font-size: 1.2rem;
+    
+    .management-section h2 {
+        padding-left: 70px;
     }
+    
+    nav ul {
+        gap: 8px
+    }
+    
+    nav a {
+        padding: 0.7rem 1rem;
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 768px) {
+    h1 { font-size: 2rem; }
+    h2 { font-size: 1.8rem; }
+    h3 { font-size: 1.3rem; }
+    
+    .club-header {
+        flex-direction: column;
+        gap: 15px;
+        padding: 1.5rem 1rem;
+    }
+    
+    .header-logo {
+        width: 100px;
+        height: 100px;
+    }
+    
+    .header-titles {
+        text-align: center;
+        min-width: 100%;
+    }
+    
+    .club-motto {
+        font-size: 1.1rem;
+    }
+    
+    .madrid-time {
+        margin: 10px auto;
+        order: 3;
+        width: 90%;
+        text-align: center;
+    }
+    
+    .management-section h2 {
+        padding-left: 30px;
+        text-align: center;
+    }
+    
+    .management-grid, .news-grid {
+        padding: 1rem;
+    }
+    
+    .management-card, .news-card {
+        min-width: 100%;
+    }
+    
     .stadium-section {
+        padding: 2rem 1rem;
         background-attachment: scroll;
     }
     
-    /* Адаптивные стили для навигации на мобильных */
+    .stadium-section h2 {
+        font-size: 1.8rem;
+    }
+    
+    .stadium-description, .team-photo-caption {
+        font-size: 1rem;
+    }
+    
     nav ul {
         flex-direction: column;
         align-items: center;
@@ -372,29 +503,13 @@ footer {
     nav a {
         width: 90%;
         padding: 0.6rem 0;
-        border-radius: 20px;
         font-size: 0.9rem;
     }
     
-    nav a:hover {
-        transform: none;
-    }
-}
-
-/* Стили для планшетов */
-@media (min-width: 769px) and (max-width: 1024px) {
-    nav ul {
-        gap: 8px;
+    .more-news-buttons h2 {
+        font-size: 1.8rem;
     }
     
-    nav a {
-        padding: 0.7rem 1rem;
-        font-size: 0.9rem;
-    }
-}
-
-/* Адаптивность для кнопок новостей */
-@media (max-width: 768px) {
     .news-buttons-container {
         flex-direction: column;
         align-items: center;
@@ -405,7 +520,42 @@ footer {
         max-width: 300px;
     }
     
+    .theme-toggle {
+        width: 40px;
+        height: 40px;
+        bottom: 15px;
+        right: 15px;
+    }
+    
+    .theme-icon {
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 { font-size: 1.8rem; }
+    h2 { font-size: 1.5rem; }
+    h3 { font-size: 1.2rem; }
+    
+    .header-logo {
+        width: 80px;
+        height: 80px;
+    }
+    
+    .club-motto {
+        font-size: 1rem;
+    }
+    
+    .btn {
+        padding: 0.8rem 1.5rem;
+        font-size: 0.9rem;
+    }
+    
+    .stadium-section h2 {
+        font-size: 1.5rem;
+    }
+    
     .more-news-buttons h2 {
-        font-size: 1.8rem;
+        font-size: 1.5rem;
     }
 }

@@ -11,7 +11,37 @@ document.addEventListener('DOMContentLoaded', () => {
     // Инициализация интерактивных элементов (например, анимации)
     initInteractiveElements();
 });
+// Функция для переключения темы
+function toggleTheme() {
+    const currentTheme = document.documentElement.getAttribute('data-theme');
+    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+    
+    document.documentElement.setAttribute('data-theme', newTheme);
+    localStorage.setItem('theme', newTheme);
+    
+    // Обновляем иконку
+    const themeIcon = document.querySelector('.theme-icon');
+    themeIcon.textContent = newTheme === 'dark' ? '🌞' : '🌙';
+}
 
+// Инициализация темы при загрузке
+function initTheme() {
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    document.documentElement.setAttribute('data-theme', savedTheme);
+    
+    const themeIcon = document.querySelector('.theme-icon');
+    themeIcon.textContent = savedTheme === 'dark' ? '🌞' : '🌙';
+    
+    // Добавляем обработчик события
+    const themeToggle = document.getElementById('theme-toggle');
+    themeToggle.addEventListener('click', toggleTheme);
+}
+
+// Вызываем инициализацию темы при загрузке DOM
+document.addEventListener('DOMContentLoaded', () => {
+    initTheme();
+    // Остальной существующий код...
+});
 // Загрузка данных руководства
 function loadManagementData() {
     const managementData = [
@@ -150,3 +180,19 @@ function animateHeader() {
         }, 500);
     }
 }
+// Функция для отображения времени в Мадриде
+function updateMadridTime() {
+    const options = {
+        timeZone: 'Europe/Madrid',
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit',
+        hour12: false // 24-часовой формат
+    };
+    const time = new Date().toLocaleTimeString('ru-RU', options);
+    document.getElementById('time').textContent = time;
+}
+
+// Запуск и обновление каждую секунду
+updateMadridTime();
+setInterval(updateMadridTime, 1000);

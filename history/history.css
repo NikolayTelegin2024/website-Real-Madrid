@@ -1,42 +1,65 @@
-/* Основные стили */
+/* Основные переменные цветов в RGBA */
+:root {
+    /* Цвета Реал Мадрид */
+    --rm-primary: rgba(164, 0, 0, 1);        /* Основной красный */
+    --rm-primary-dark: rgba(112, 28, 28, 1); /* Темный красный */
+    --rm-gold: rgba(255, 215, 0, 1);         /* Золотой */
+    --rm-light-gold: rgba(254, 190, 16, 1);  /* Светлый золотой */
+    --rm-blue: rgba(0, 82, 159, 1);          /* Синий */
+    --rm-dark-blue: rgba(0, 51, 102, 1);     /* Темный синий */
+    
+    /* Основные цвета */
+    --bg-color: rgba(249, 249, 249, 1);      /* Фон страницы */
+    --text-color: rgba(51, 51, 51, 1);       /* Основной текст */
+    --card-bg: rgba(255, 255, 255, 1);       /* Фон карточек */
+    --border-color: rgba(221, 221, 221, 1);  /* Цвет границ */
+    --shadow-color: rgba(0, 0, 0, 0.1);      /* Цвет теней */
+    --header-gradient: linear-gradient(135deg, var(--rm-blue), var(--rm-dark-blue));
+}
+
+/* Темная тема */
+[data-theme="dark"] {
+    --bg-color: rgba(30, 30, 30, 1);
+    --text-color: rgba(224, 224, 224, 1);
+    --card-bg: rgba(40, 40, 40, 1);
+    --border-color: rgba(70, 70, 70, 1);
+    --shadow-color: rgba(0, 0, 0, 0.3);
+    --header-gradient: linear-gradient(135deg, rgba(0, 60, 120, 1), rgba(0, 30, 60, 1));
+}
+
+/* Общие стили */
 body {
     font-family: 'Arial', sans-serif;
     line-height: 1.6;
     margin: 0;
     padding: 0;
-    background-color: #f9f9f9;
-    color: #333;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
-/* Добавьте это в конец файла history.css */
+
+/* Кнопка "На главную" */
 .home-button {
     position: fixed;
     top: 20px;
     left: 20px;
     padding: 10px 15px;
-    background-color: #FEBE10;
-    color: #00529F;
+    background-color: var(--rm-gold);
+    color: var(--rm-blue);
     text-decoration: none;
     border-radius: 5px;
     font-weight: bold;
     z-index: 1000;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-    transition: background-color 0.3s, transform 0.2s;
+    box-shadow: 0 2px 5px var(--shadow-color);
+    transition: all 0.3s ease;
 }
 
 .home-button:hover {
-    background-color: #00529F;
-    color: white;
+    background-color: var(--rm-blue);
+    color: rgba(255, 255, 255, 1);
     transform: translateY(-2px);
 }
 
-@media (max-width: 768px) {
-    .home-button {
-        top: 10px;
-        left: 10px;
-        padding: 8px 12px;
-        font-size: 0.9em;
-    }
-}
 /* Контейнер */
 .container {
     max-width: 1200px;
@@ -46,11 +69,11 @@ body {
 
 /* Шапка */
 header {
-    background: linear-gradient(135deg, #00529F, #003366);
-    color: white;
+    background: var(--header-gradient);
+    color: rgba(255, 255, 255, 1);
     padding: 30px 0;
     text-align: center;
-    border-bottom: 5px solid #FEBE10;
+    border-bottom: 5px solid var(--rm-gold);
 }
 
 h1 {
@@ -65,23 +88,23 @@ h1 {
     filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.5));
 }
 
-
+/* Секции истории */
 .history-section {
-    background: white;
+    background: var(--card-bg);
     padding: 25px;
     margin: 25px 0;
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border-left: 4px solid #FEBE10;
+    box-shadow: 0 4px 8px var(--shadow-color);
+    border-left: 4px solid var(--rm-gold);
 }
 
 .history-section h2 {
-    color: #00529F;
-    border-bottom: 2px solid #FEBE10;
+    color: var(--rm-blue);
+    border-bottom: 2px solid var(--rm-gold);
     padding-bottom: 10px;
 }
 
-
+/* Галерея изображений */
 .image-gallery {
     display: flex;
     flex-wrap: wrap;
@@ -96,17 +119,19 @@ h1 {
     object-fit: cover;
     border-radius: 5px;
     transition: transform 0.3s, box-shadow 0.3s;
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 3px 6px var(--shadow-color);
+    border: 1px solid var(--border-color);
 }
 
 .image-gallery img:hover {
     transform: scale(1.03);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 5px 15px var(--shadow-color);
 }
 
+/* Подвал */
 footer {
-    background: #00529F;
-    color: white;
+    background: var(--rm-blue);
+    color: rgba(255, 255, 255, 1);
     text-align: center;
     padding: 15px 0;
     margin-top: 30px;
@@ -116,7 +141,50 @@ footer p {
     margin: 0;
 }
 
+/* Подсказки */
+.tooltip {
+    position: absolute;
+    background-color: rgba(51, 51, 51, 0.9);
+    color: rgba(255, 255, 255, 1);
+    padding: 5px 10px;
+    border-radius: 5px;
+    z-index: 10;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
 
+.image-container:hover .tooltip {
+    opacity: 1;
+}
+
+/* Переключатель темы */
+.theme-toggle {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: var(--rm-gold);
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 10px var(--shadow-color);
+    z-index: 1000;
+    transition: transform 0.3s ease;
+}
+
+.theme-toggle:hover {
+    transform: scale(1.1);
+}
+
+.theme-icon {
+    font-size: 1.5em;
+}
+
+/* Адаптивность */
 @media (max-width: 768px) {
     .container {
         padding: 10px;
@@ -126,20 +194,33 @@ footer p {
         width: 100%;
         height: auto;
     }
+    
+    .home-button {
+        top: 10px;
+        left: 10px;
+        padding: 8px 12px;
+        font-size: 0.9em;
+    }
+    
+    h1 {
+        font-size: 2em;
+    }
 }
 
-
-.tooltip {
-  position: absolute;
-  background-color: #333;
-  color: white;
-  padding: 5px 10px;
-  border-radius: 5px;
-  z-index: 10; 
-  opacity: 0;
-  transition: opacity 0.3s ease; 
-}
-
-.image-container:hover .tooltip {
-  opacity: 1;
+@media (max-width: 480px) {
+    header {
+        padding: 20px 0;
+    }
+    
+    .logo {
+        width: 120px;
+    }
+    
+    .history-section {
+        padding: 15px;
+    }
+    
+    .image-gallery {
+        gap: 10px;
+    }
 }

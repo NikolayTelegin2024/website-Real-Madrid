@@ -9,8 +9,12 @@
 <body>
     <header>
         <div class="club-header">
-            <h1>Real Madrid</h1>
-            <p class="club-motto">¡Hala Madrid y nada más!</p>
+            <img src="https://i.pinimg.com/originals/54/af/90/54af90ee80a4b679a209cf94a3aec5f7.jpg" 
+                alt="Real Madrid Logo" class="header-logo">
+            <div class="header-titles">
+                <h1>Real Madrid</h1>
+                <p class="club-motto">¡Hala Madrid y nada más!</p>
+            </div>
         </div>
         <nav>
             <ul>
@@ -22,8 +26,13 @@
                 <li><a href="legends/legends.html">Легенды</a></li>
             </ul>
         </nav>
+    <button id="theme-toggle" class="theme-toggle" aria-label="Переключить тему">
+        <span class="theme-icon">🌓</span>
+    </button>
     </header>
-
+    <div id="madrid-time" class="madrid-time">
+        Время в Мадриде: <span id="time"></span>
+    </div>
     <main>
         <section class="management-section">
             <h2>Руководство клуба</h2>

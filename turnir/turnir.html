@@ -1,17 +1,35 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Таблица Ла Лиги</title>
+    <title>Футбольные турниры</title>
     <link rel="stylesheet" href="./turnir.css">
 </head>
 <body>
     <a href="../index.html" class="home-button">На Главную</a>
-    <h1>Турнирная таблица Ла Лиги</h1>
-    <div id="laliga-table-container">
-        <p class="loading">Загрузка данных...</p>
+    <button id="theme-toggle" class="theme-toggle" aria-label="Переключить тему">
+        <span class="theme-icon">🌓</span>
+    </button>
+    <h1>Футбольные турниры 2024/2025</h1>
+    
+    <div class="tabs">
+        <button class="tab-button active" data-tab="laliga">Ла Лига</button>
+        <button class="tab-button" data-tab="ucl">Лига Чемпионов</button>
     </div>
+    
+    <div id="laliga-tab" class="tab-content active">
+        <div id="laliga-table-container">
+            <p class="loading">Загрузка данных Ла Лиги...</p>
+        </div>
+    </div>
+    
+    <div id="ucl-tab" class="tab-content">
+        <div id="ucl-table-container">
+            <p class="loading">Загрузка данных Лиги Чемпионов...</p>
+        </div>
+    </div>
+
     <script src="turnir.js"></script>
 </body>
 </html>
