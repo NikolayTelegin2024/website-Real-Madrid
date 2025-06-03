@@ -59,7 +59,7 @@ const players = [
             { name: "Суперкубок Испании", count: 2, image: "https://fbi.cults3d.com/uploaders/15795342/illustration-file/9dcb9eb0-4892-4487-a34f-5998f99178ad/untitled.77.jpg" },
             { name: "Суперкубок УЕФА", count: 2, image: "https://avatars.mds.yandex.net/i?id=4d6449eee02c58f211b7a7e067c111bf_l-5288062-images-thumbs&n=13" },
             { name: "Клубный чмпионат мира", count: 1, image: "https://i.pinimg.com/originals/41/60/e9/4160e9e356f7ee2746a29a0fbaf92e87.png" },
-            { name: "Межконтинентальный кубок", count: 1, image: "https://www.seekpng.com/png/detail/108-1080967_klub-weltmeisterschafts-pokal-trophy-club-world-cup-png.png" }
+            { name: "Межконт. кубок", count: 1, image: "https://www.seekpng.com/png/detail/108-1080967_klub-weltmeisterschafts-pokal-trophy-club-world-cup-png.png" }
         ],
         description: "Оплот обороны Реала. Бельгийский голкипер, чьи сейвы не раз спасли команду в решающих матчах Лиги Чемпионов. Обладает феноменальной реакцией и авторитетом, организующим всю защитную линию."
     },
@@ -626,7 +626,28 @@ function loadPlayerData(index) {
         trophiesGrid.appendChild(trophyItem);
     });
 }
-
+document.querySelector(".player-card").addEventListener("click", function(e) {
+    // Проверяем, что клик не был по кнопкам навигации
+    if (!e.target.closest(".nav-button")) {
+        const cardWidth = this.offsetWidth;
+        const clickX = e.offsetX;
+        
+        // Определяем область клика (левая или правая часть карточки)
+        if (clickX < cardWidth * 0.4) {
+            // Левая часть - предыдущий игрок
+            if (currentPlayerIndex > 0) {
+                currentPlayerIndex--;
+                loadPlayerData(currentPlayerIndex);
+            }
+        } else if (clickX > cardWidth * 0.6) {
+            // Правая часть - следующий игрок
+            if (currentPlayerIndex < players.length - 1) {
+                currentPlayerIndex++;
+                loadPlayerData(currentPlayerIndex);
+            }
+        }
+    }
+});
 // Инициализация списка игроков с категориями
 function initPlayerList() {
     const categories = {

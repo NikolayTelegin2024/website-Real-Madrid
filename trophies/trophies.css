@@ -1,149 +1,135 @@
-/* Основные переменные цветов в RGBA */
 :root {
-    /* Цвета Реал Мадрид */
-    --rm-primary: rgba(164, 0, 0, 1);        /* Основной красный */
-    --rm-primary-dark: rgba(112, 28, 28, 1); /* Темный красный */
-    --rm-gold: rgba(255, 215, 0, 1);         /* Золотой */
-    --rm-light-gold: rgba(254, 190, 16, 1);  /* Светлый золотой */
-    --rm-blue: rgba(0, 82, 159, 1);          /* Синий (для турниров) */
-
-    /* Основные цвета */
-    --bg-color: rgba(245, 245, 245, 1);      /* Фон страницы */
-    --text-color: rgba(51, 51, 51, 1);       /* Основной текст */
-    --card-bg: rgba(255, 255, 255, 1);       /* Фон карточек/таблиц */
-    --border-color: rgba(221, 221, 221, 1);  /* Цвет границ */
-    --hover-bg: rgba(233, 245, 255, 1);      /* Фон при наведении */
-    --shadow-color: rgba(0, 0, 0, 0.1);      /* Цвет теней */
-    --dashed-border: rgba(221, 221, 221, 1); /* Пунктирная граница */
-    --secondary-text: rgba(102, 102, 102, 1);/* Вторичный текст */
-    --error-color: rgba(211, 47, 47, 1);     /* Цвет ошибок */
+    --rm-red: rgba(164, 0, 0, 1);
+    --rm-dark-red: rgba(112, 28, 28, 1);
+    --rm-gold: rgba(255, 215, 0, 1);
+    --rm-light-gold: rgba(254, 190, 16, 1);
+    --rm-blue: rgba(0, 82, 159, 1);
+    --rm-dark: rgba(10, 10, 10, 1);
+    --rm-light: rgba(242, 242, 242, 1);
+    --rm-bg: rgba(255, 255, 255, 1);
+    --rm-text: rgba(51, 51, 51, 1);
+    --rm-card-bg: rgba(255, 255, 255, 1);
+    --rm-nav-bg: rgba(0, 0, 0, 0.5);
+    --rm-footer-text: rgba(255, 255, 255, 1);
+    --rm-shadow: rgba(0, 0, 0, 0.1);
+    --rm-border: rgba(221, 221, 221, 1);
 }
 
-/* Темная тема */
 [data-theme="dark"] {
-    --bg-color: rgba(26, 26, 26, 1);
-    --text-color: rgba(224, 224, 224, 1);
-    --card-bg: rgba(36, 36, 36, 1);
-    --border-color: rgba(70, 70, 70, 1);
-    --hover-bg: rgba(50, 50, 50, 1);
-    --shadow-color: rgba(0, 0, 0, 0.3);
-    --dashed-border: rgba(70, 70, 70, 1);
-    --secondary-text: rgba(170, 170, 170, 1);
-    --error-color: rgba(239, 83, 80, 1);
+    --rm-dark: rgba(56, 43, 43, 1);
+    --rm-light: rgba(18, 18, 18, 1);
+    --rm-bg: rgba(26, 26, 26, 1);
+    --rm-text: rgba(224, 224, 224, 1);
+    --rm-card-bg: rgba(36, 36, 36, 1);
+    --rm-nav-bg: rgba(0, 0, 0, 0.7);
+    --rm-footer-text: rgba(9, 8, 8, 1);
+    --rm-shadow: rgba(0, 0, 0, 0.3);
+    --rm-border: rgba(70, 70, 70, 1);
 }
 
-/* Общие стили */
 body {
-    font-family: 'Arial', sans-serif;
+    font-family: 'Univers', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: var(--bg-color);
-    color: var(--text-color);
+    background-color: var(--rm-bg);
+    color: var(--rm-text);
     line-height: 1.6;
     transition: background-color 0.3s ease, color 0.3s ease;
+    display: grid;
+    grid-template-rows: auto auto 1fr auto;
+    min-height: 100vh;
 }
 
-/* Кнопка "На главную" */
 .home-button {
     position: fixed;
     top: 20px;
     left: 20px;
     padding: 10px 15px;
-    background-color: var(--rm-gold);
-    color: var(--rm-blue);
+    background: linear-gradient(135deg, var(--rm-gold), var(--rm-light-gold));
+    color: var(--rm-dark);
     text-decoration: none;
-    border-radius: 5px;
+    border-radius: 30px;
     font-weight: bold;
     z-index: 1000;
-    box-shadow: 0 2px 5px var(--shadow-color);
+    box-shadow: 0 2px 5px var(--rm-shadow);
     transition: all 0.3s ease;
 }
 
 .home-button:hover {
-    background-color: var(--rm-blue);
+    background: linear-gradient(135deg, var(--rm-red), var(--rm-dark-red));
     color: rgba(255, 255, 255, 1);
     transform: translateY(-2px);
 }
 
-/* Основная секция */
 .trophy-section {
-    padding: 20px;
+    padding: 2rem;
     max-width: 1200px;
     margin: 0 auto;
+    width: 100%;
 }
 
 .trophy-section h1 {
-    color: var(--rm-blue);
+    color: var(--rm-red);
     text-align: center;
-    margin-bottom: 30px;
-    font-size: 2.5em;
-    text-transform: uppercase;
-    letter-spacing: 1px;
+    margin-bottom: 2rem;
+    font-size: 2.5rem;
+    text-shadow: 1px 1px 2px var(--rm-shadow);
 }
 
-/* Контейнер графика */
 .chart-container {
-    background: var(--card-bg);
+    background: var(--rm-card-bg);
     border-radius: 8px;
-    padding: 20px;
-    margin: 30px auto;
-    box-shadow: 0 2px 10px var(--shadow-color);
+    padding: 2rem;
+    margin: 2rem auto;
+    box-shadow: 0 5px 15px var(--rm-shadow);
     max-width: 900px;
 }
 
-.chart-header {
-    text-align: center;
-    margin-bottom: 20px;
-}
-
 .chart-header h2 {
-    color: var(--rm-blue);
-    margin-bottom: 5px;
+    color: var(--rm-red);
+    margin-bottom: 1rem;
+    text-align: center;
 }
 
-/* Категории трофеев */
 .trophy-category {
-    margin-bottom: 40px;
-    background: var(--card-bg);
+    margin-bottom: 2rem;
+    background: var(--rm-card-bg);
     border-radius: 8px;
-    padding: 20px;
-    box-shadow: 0 2px 10px var(--shadow-color);
+    padding: 2rem;
+    box-shadow: 0 5px 15px var(--rm-shadow);
 }
 
 .trophy-category h2 {
-    color: var(--rm-blue);
-    border-bottom: 2px solid var(--rm-gold);
-    padding-bottom: 5px;
-    margin-bottom: 20px;
-    font-size: 1.8em;
-    display: inline-block;
+    color: var(--rm-red);
+    border-bottom: 3px solid var(--rm-gold);
+    padding-bottom: 0.5rem;
+    margin-bottom: 1.5rem;
+    font-size: 1.8rem;
 }
 
-/* Сетка карточек трофеев */
 .trophy-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 25px;
+    gap: 2rem;
 }
 
-/* Карточка трофея */
 .trophy-card {
-    border: 1px solid var(--border-color);
+    border: 1px solid var(--rm-border);
     border-radius: 8px;
     overflow: hidden;
     transition: transform 0.3s, box-shadow 0.3s;
-    background: var(--card-bg);
-    box-shadow: 0 2px 5px var(--shadow-color);
+    background: var(--rm-card-bg);
+    box-shadow: 0 2px 5px var(--rm-shadow);
 }
 
 .trophy-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 10px 20px var(--shadow-color);
+    box-shadow: 0 10px 20px var(--rm-shadow);
 }
 
 .trophy-media {
     position: relative;
-    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+    padding-bottom: 56.25%;
     height: 0;
     overflow: hidden;
 }
@@ -159,44 +145,43 @@ body {
 }
 
 .trophy-info {
-    padding: 15px;
+    padding: 1.5rem;
 }
 
 .trophy-title {
-    font-size: 1.2em;
-    color: var(--rm-blue);
-    margin-bottom: 5px;
+    font-size: 1.2rem;
+    color: var(--rm-red);
+    margin-bottom: 0.5rem;
     font-weight: bold;
 }
 
 .trophy-count {
     font-weight: bold;
     color: var(--rm-gold);
-    font-size: 1.1em;
-    margin-bottom: 10px;
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
 }
 
 .trophy-description {
-    font-size: 0.9em;
-    color: var(--secondary-text);
+    font-size: 0.9rem;
+    color: var(--rm-text);
     line-height: 1.4;
-    margin-bottom: 10px;
+    margin-bottom: 1rem;
 }
 
 .trophy-years {
-    margin-top: 10px;
-    font-size: 0.85em;
-    color: var(--secondary-text);
+    margin-top: 1rem;
+    font-size: 0.85rem;
+    color: var(--rm-text);
     line-height: 1.4;
-    padding-top: 10px;
-    border-top: 1px dashed var(--dashed-border);
+    padding-top: 1rem;
+    border-top: 1px dashed var(--rm-border);
 }
 
 .trophy-years strong {
-    color: var(--text-color);
+    color: var(--rm-red);
 }
 
-/* Анимации */
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(20px); }
     to { opacity: 1; transform: translateY(0); }
@@ -214,7 +199,6 @@ body {
 .trophy-card:nth-child(5) { animation-delay: 0.5s; }
 .trophy-card:nth-child(6) { animation-delay: 0.6s; }
 
-/* Переключатель темы */
 .theme-toggle {
     position: fixed;
     bottom: 20px;
@@ -222,13 +206,13 @@ body {
     width: 50px;
     height: 50px;
     border-radius: 50%;
-    background: var(--rm-gold);
+    background: linear-gradient(135deg, var(--rm-gold), var(--rm-light-gold));
     border: none;
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 2px 10px var(--shadow-color);
+    box-shadow: 0 2px 10px var(--rm-shadow);
     z-index: 1000;
     transition: transform 0.3s ease;
 }
@@ -237,47 +221,74 @@ body {
     transform: scale(1.1);
 }
 
-.theme-icon {
-    font-size: 1.5em;
+/* Адаптивность */
+
+@media (max-width: 1200px) { /* Для больших экранов, уменьшаем отступы */
+  .trophy-section {
+    padding: 1.5rem;
+  }
 }
 
-/* Адаптивность */
 @media (max-width: 768px) {
     .trophy-grid {
-        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Уменьшаем минимальную ширину карточек */
     }
-    
+
     .trophy-section h1 {
-        font-size: 2em;
+        font-size: 2rem; /* Уменьшаем размер заголовка */
     }
-    
+
     .trophy-category h2 {
-        font-size: 1.5em;
+        font-size: 1.5rem; /* Уменьшаем размер заголовков категорий */
     }
-    
+
     .chart-container {
-        padding: 15px;
-        margin: 20px auto;
+        padding: 1.5rem;
+        margin: 1.5rem auto;
     }
-    
+
     .home-button {
         top: 10px;
         left: 10px;
-        padding: 8px 12px;
-        font-size: 0.9em;
+        padding: 8px 12px; /* Уменьшаем размер кнопки "На главную" */
+    }
+    .theme-toggle {
+        bottom: 10px;
+        right: 10px;
+        width: 45px;
+        height: 45px;
     }
 }
 
 @media (max-width: 480px) {
     .trophy-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr; /* Карточки в одну колонку на маленьких экранах */
     }
-    
+
     .trophy-section h1 {
-        font-size: 1.8em;
+        font-size: 1.8rem; /* Дальнейшее уменьшение размера заголовка */
     }
-    
+
     .trophy-media {
-        padding-bottom: 75%;
+        padding-bottom: 75%; /* Увеличиваем пропорции для видео/изображений, чтобы они были более заметны */
+    }
+
+    .trophy-title {
+        font-size: 1.1rem; /* Уменьшаем размер заголовков карточек */
+    }
+
+    .trophy-count {
+        font-size: 1rem; /* Уменьшаем размер счетчика трофеев */
+    }
+
+    .trophy-description {
+        font-size: 0.85rem; /* Уменьшаем размер описания */
+    }
+    .home-button {
+        padding: 6px 10px;
+        font-size: 0.8rem; /* Уменьшаем размер текста на кнопке еще больше */
+    }
+    .nav-buttons {
+        grid-template-columns: 1fr;
     }
 }

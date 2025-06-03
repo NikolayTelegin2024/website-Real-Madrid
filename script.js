@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Загрузка новостей
     loadNews();
 
-    // Инициализация интерактивных элементов (например, анимации)
+    // Инициализация интерактивных элементов 
     initInteractiveElements();
 });
 // Функция для переключения темы
@@ -40,7 +40,7 @@ function initTheme() {
 // Вызываем инициализацию темы при загрузке DOM
 document.addEventListener('DOMContentLoaded', () => {
     initTheme();
-    // Остальной существующий код...
+
 });
 // Загрузка данных руководства
 function loadManagementData() {
@@ -123,14 +123,6 @@ function loadNews() {
 
 // Инициализация интерактивных элементов
 function initInteractiveElements() {
-    // Параллакс для секции стадиона
-    const stadiumSection = document.querySelector('.stadium-section');
-    if (stadiumSection) {
-        window.addEventListener('scroll', () => {
-            const scrollPosition = window.pageYOffset;
-            stadiumSection.style.backgroundPositionY = `${scrollPosition * 0.5}px`;
-        });
-    }
 
     // Анимация заголовка
     animateHeader();

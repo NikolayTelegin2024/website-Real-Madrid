@@ -1,4 +1,3 @@
-/* Основные переменные цветов в RGBA */
 :root {
     --rm-red: rgba(164, 0, 0, 1);
     --rm-dark-red: rgba(112, 28, 28, 1);
@@ -11,63 +10,48 @@
     --rm-card-bg: rgba(255, 255, 255, 1);
     --rm-nav-bg: rgba(0, 0, 0, 0.5);
     --rm-footer-text: rgba(255, 255, 255, 1);
-    --rm-gradient: linear-gradient(135deg, rgba(164, 0, 0, 1), rgba(112, 28, 28, 1));
-    --rm-gold-gradient: linear-gradient(135deg, rgba(255, 215, 0, 1), rgba(254, 190, 16, 1));
 }
 
-/* Темная тема */
 [data-theme="dark"] {
-    --rm-dark: rgb(178, 166, 166);
+    --rm-dark: rgba(56, 43, 43, 1);
     --rm-light: rgba(18, 18, 18, 1);
     --rm-bg: rgba(26, 26, 26, 1);
     --rm-text: rgba(224, 224, 224, 1);
     --rm-card-bg: rgba(36, 36, 36, 1);
     --rm-nav-bg: rgba(0, 0, 0, 0.7);
-    --rm-footer-text: rgb(9, 8, 8);
-    --rm-gradient: linear-gradient(135deg, rgba(138, 0, 0, 1), rgba(90, 21, 21, 1));
-    --rm-gold-gradient: linear-gradient(135deg, rgba(230, 194, 0, 1), rgba(212, 169, 16, 1));
-}
-
-/* Анимации */
-@keyframes pulse {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.05); }
-    100% { transform: scale(1); }
+    --rm-footer-text: rgba(255, 255, 255, 0.9);
 }
 
 @keyframes float {
-    0% { transform: translateY(0); }
-    50% { transform: translateY(-10px); }
-    100% { transform: translateY(0); }
+    0%, 100% { transform: translate3d(0,0,0); }
+    50% { transform: translate3d(0,-10px,0); }
 }
 
-/* Базовые стили */
 body {
-    font-family: 'Arial', sans-serif;
+    font-family: 'Univers', sans-serif;
     line-height: 1.6;
     margin: 0;
     background-color: var(--rm-bg);
     color: var(--rm-text);
     transition: background-color 0.3s ease, color 0.3s ease;
+    display: grid;
+    grid-template-rows: auto auto 1fr auto;
+    min-height: 100vh;
 }
 
 h1, h2, h3 {
     font-weight: 700;
+    margin: 0;
 }
 
-h1 { font-size: 2.5rem; }
-h2 { font-size: 2rem; }
-h3 { font-size: 1.5rem; }
-
-/* Шапка */
 .club-header {
-    background: var(--rm-gradient);
+    background: linear-gradient(135deg, var(--rm-red), var(--rm-dark-red));
     padding: 2rem;
-    text-align: center;
     display: flex;
+    flex-direction: row;
     align-items: center;
     justify-content: center;
-    gap: 20px;
+    gap: 30px;
     position: relative;
 }
 
@@ -77,59 +61,55 @@ h3 { font-size: 1.5rem; }
     object-fit: contain;
     filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.5));
     animation: float 4s ease-in-out infinite;
+    margin-right: 20px;
 }
 
 .header-titles {
     text-align: left;
 }
-
 .club-header h1 {
-    font-size: 3rem;
-    margin: 0;
+    font-size: 2.2rem;
     color: rgba(255, 255, 255, 1);
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .club-motto {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     color: var(--rm-gold);
     font-style: italic;
-    margin-top: 1rem;
+    margin-top: 0.5rem;
 }
 
-/* Блок времени */
 .madrid-time {
     background: rgba(0, 0, 0, 0.7);
     color: rgba(255, 255, 255, 1);
     padding: 0.5rem 1rem;
     border-radius: 20px;
     font-weight: bold;
-    display: inline-block;
-    margin-left: auto;
-    font-size: 1rem;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-    position: absolute;
-    right: 20px;
-    top: 20px;
+    position: relative;
+    margin: 0 auto;
+    width: max-content;
+    top: 0;
+    right: 0;
+    margin-bottom: 10px;
 }
 
 .madrid-time span {
     color: var(--rm-light-gold);
 }
 
-/* Навигация */
 nav ul {
     display: flex;
     justify-content: center;
-    gap: 10px;
-    padding: 1rem;
-    list-style: none;
-    margin: 0;
     flex-wrap: wrap;
+    gap: 8px;
+    padding: 1rem;
+    margin: 0;
+    list-style: none;
 }
 
 nav a {
-    padding: 0.8rem 1.2rem;
+    padding: 0.7rem 1rem;
     border-radius: 25px;
     color: rgba(255, 255, 255, 1);
     background: var(--rm-nav-bg);
@@ -138,6 +118,7 @@ nav a {
     font-weight: 600;
     text-align: center;
     white-space: nowrap;
+    font-size: 0.9rem;
 }
 
 nav a:hover {
@@ -146,120 +127,77 @@ nav a:hover {
 }
 
 nav a.active {
-    background: var(--rm-gold-gradient);
+    background: linear-gradient(135deg, var(--rm-gold), var(--rm-light-gold));
     color: var(--rm-dark);
     transform: scale(1.05);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-/* Кнопки */
 .btn {
     display: inline-block;
-    padding: 1rem 2rem;
+    padding: 0.8rem 1.5rem;
     border-radius: 30px;
     font-weight: 600;
-    text-transform: uppercase;
     text-decoration: none;
     color: rgba(255, 255, 255, 1);
     transition: all 0.3s ease;
-    border: none;
-    cursor: pointer;
-    font-size: 1rem;
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    font-size: 0.95rem;
 }
 
 .btn-primary {
-    background: var(--rm-gradient)
-}
-
-.btn-primary:hover {
-    background: var(--rm-dark-red);
-    box-shadow: 0 8px 15px rgba(164, 0, 0, 0.3);
-    animation: pulse 1.2s infinite;
+    background: linear-gradient(135deg, var(--rm-red), var(--rm-dark-red));
 }
 
 .btn-gold {
-    background: var(--rm-gold-gradient);
+    background: linear-gradient(135deg, var(--rm-gold), var(--rm-light-gold));
     color: var(--rm-dark);
 }
 
-.btn-gold:hover {
-    background: var(--rm-light-gold);
-    box-shadow: 0 8px 15px rgba(254, 190, 16, 0.3);
-    animation: pulse 1.2s infinite;
-}
-
-/* Карточки */
-.management-card, .news-card {
-    background-color: var(--rm-card-bg);
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    margin-bottom: 20px;
-    overflow: hidden;
-    transition: transform 0.3s ease;
-}
-
-.management-card img, .news-card img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-}
-
-.management-card:hover, .news-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-}
-
-/* Секция руководства */
-.management-section h2 {
-    padding-left: 100px;
-    text-align: left;
-}
-
 .management-grid {
-    display: flex;
-    justify-content: center;
-    gap: 2rem;
-    flex-wrap: wrap;
-    padding: 2rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    padding: 1.5rem;
 }
 
 .management-card {
-    flex: 1;
-    min-width: 280px;
-    max-width: 400px;
-    display: flex;
-    flex-direction: column;
+    background-color: var(--rm-card-bg);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.management-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
 }
 
 .management-card img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 4/3;
+    object-fit: cover;
     border-bottom: 3px solid var(--rm-gold);
 }
 
 .management-card-content {
-    padding: 1.5rem;
-    flex-grow: 1;
+    padding: 1.2rem;
 }
 
 .management-card h3 {
     color: var(--rm-red);
     margin-bottom: 0.5rem;
+    font-size: 1.2rem;
 }
 
-.management-card p {
-    margin: 0.3rem 0;
-    color: var(--rm-text);
-}
-
-/* Секция стадиона */
 .stadium-section {
     position: relative;
-    padding: 4rem 2rem;
-    background: url('https://www.thesun.co.uk/wp-content/uploads/2020/02/NINTCHDBPICT000447297248.jpg?strip=all&amp;quality=100&amp;w=1920&amp;h=1080&amp;crop=1') center/cover no-repeat scroll;
-    color: rgba(219, 247, 7, 1);
+    padding: 2.5rem 1rem;
+    background: url('https://www.thesun.co.uk/wp-content/uploads/2020/02/NINTCHDBPICT000447297248.jpg?strip=all&amp;quality=100&amp;w=1920&amp;h=1080&amp;crop=1') center/cover no-repeat fixed;
+    color: var(--rm-gold);
     text-align: center;
     background-attachment: fixed;
-    overflow: hidden;
 }
 
 .stadium-section::before {
@@ -270,27 +208,25 @@ nav a.active {
     width: 100%;
     height: 100%;
     background: rgba(0, 0, 0, 0.3);
-    z-index: 1;
 }
 
 .stadium-section h2 {
     position: relative;
-    z-index: 2;
-    font-size: 2.5rem;
+    font-size: 2rem;
     color: var(--rm-gold);
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
-    margin-bottom: 2rem;
-    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+    z-index: 2;
 }
 
 .stadium-container, .team-photo {
     position: relative;
-    z-index: 2;
-    max-width: 900px;
-    margin: 0 auto 3rem;
-    border-radius: 10px;
+    max-width: 100%;
+    margin: 0 auto 2rem;
+    border-radius: 8px;
     overflow: hidden;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+    z-index: 2;
 }
 
 .stadium-photo, .team-photo img {
@@ -298,114 +234,141 @@ nav a.active {
     height: auto;
     display: block;
     transition: transform 0.5s ease;
-    filter: brightness(0.9);
-}
-
-.stadium-photo:hover, .team-photo img:hover {
-    transform: scale(1.03);
 }
 
 .stadium-description, .team-photo-caption {
     position: relative;
-    z-index: 2;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     font-weight: bold;
-    color: rgba(255, 255, 255, 1);
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
-    padding: 1rem;
-    background: rgba(164, 0, 0, 0.7);
+    padding: 0.8rem;
     margin: 0;
+    z-index: 2;
+}
+
+.stadium-description {
+    background: rgba(164, 0, 0, 0.7);
+    color: rgba(255, 255, 255, 1);
 }
 
 .team-photo-caption {
     background: rgba(255, 215, 0, 0.7);
     color: var(--rm-dark);
-    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.5);
 }
 
-/* Новости */
 .news-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 1.5rem;
-    padding: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.2rem;
+    padding: 1.5rem;
+}
+
+.news-card {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 .news-card a {
-    text-decoration: none;
-    color: var(--rm-text);
     display: block;
-    padding: 1rem;
+    text-decoration: none;
+    color: inherit;
 }
 
-/* Кнопки новостей */
+.news-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.news-card:hover img {
+    transform: scale(1.05);
+}
+
+.news-card h3 {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    margin: 0;
+    padding: 1.2rem;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.85), transparent);
+    color: white;
+    font-size: 1.15rem;
+    font-weight: 700;
+    line-height: 1.4;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
+    transition: all 0.4s ease;
+    box-sizing: border-box;
+    z-index: 2;
+}
+
+.news-card:hover h3 {
+    background: linear-gradient(to top, var(--rm-red), transparent);
+    padding-bottom: 1.8rem;
+}
+
+.news-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.6) 100%);
+    z-index: 1;
+    opacity: 0.8;
+    transition: opacity 0.4s ease;
+}
+
+.news-card:hover::before {
+    opacity: 0.9;
+}
+
 .more-news-buttons {
-    padding: 3rem 2rem;
+    padding: 2rem 1rem;
     text-align: center;
-    background-color: var(--rm-card-bg);
-}
-
-.more-news-buttons h2 {
-    color: var(--rm-red);
-    margin-bottom: 2rem;
-    font-size: 2rem;
 }
 
 .news-buttons-container {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 1.5rem;
-    max-width: 1200px;
+    gap: 1rem;
+    max-width: 100%;
     margin: 0 auto;
 }
 
-.news-buttons-container .btn {
-    min-width: 200px;
-    flex: 1;
-    max-width: 250px;
-}
-
-/* Футер */
 footer {
     background-color: var(--rm-dark);
     color: var(--rm-footer-text);
     text-align: center;
-    padding: 2rem 0;
+    padding: 1.5rem 0;
+    font-size: 0.95rem;
 }
 
-/* Переключатель темы */
 .theme-toggle {
     position: fixed;
-    bottom: 20px;
-    right: 20px;
-    width: 50px;
-    height: 50px;
+    bottom: 15px;
+    right: 15px;
+    width: 45px;
+    height: 45px;
     border-radius: 50%;
-    background: var(--rm-gold-gradient);
+    background: linear-gradient(135deg, var(--rm-gold), var(--rm-light-gold));
     border: none;
     cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    display: grid;
+    place-items: center;
     z-index: 1000;
-    transition: transform 0.3s ease;
 }
 
-.theme-toggle:hover {
-    transform: scale(1.1);
-}
-
-.theme-icon {
-    font-size: 1.5rem;
-}
-
-/* Адаптивность */
-@media (max-width: 1024px) {
+@media (min-width: 480px) {
     .club-header {
         flex-direction: row;
-        padding: 1.5rem;
+        text-align: left;
+        padding: 2rem;
     }
     
     .header-logo {
@@ -413,101 +376,125 @@ footer {
         height: 150px;
     }
     
+    .club-header h1 {
+        font-size: 2.5rem;
+    }
+    
     .club-motto {
-        font-size: 1.2rem;
-    }
-    
-    .stadium-section h2 {
-        font-size: 2rem;
-    }
-    
-    .management-section h2 {
-        padding-left: 70px;
-    }
-    
-    nav ul {
-        gap: 8px
+        font-size: 1.3rem;
     }
     
     nav a {
-        padding: 0.7rem 1rem;
-        font-size: 0.9rem;
-    }
-}
-
-@media (max-width: 768px) {
-    h1 { font-size: 2rem; }
-    h2 { font-size: 1.8rem; }
-    h3 { font-size: 1.3rem; }
-    
-    .club-header {
-        flex-direction: column;
-        gap: 15px;
-        padding: 1.5rem 1rem;
-    }
-    
-    .header-logo {
-        width: 100px;
-        height: 100px;
-    }
-    
-    .header-titles {
-        text-align: center;
-        min-width: 100%;
-    }
-    
-    .club-motto {
-        font-size: 1.1rem;
-    }
-    
-    .madrid-time {
-        margin: 10px auto;
-        order: 3;
-        width: 90%;
-        text-align: center;
-    }
-    
-    .management-section h2 {
-        padding-left: 30px;
-        text-align: center;
-    }
-    
-    .management-grid, .news-grid {
-        padding: 1rem;
-    }
-    
-    .management-card, .news-card {
-        min-width: 100%;
-    }
-    
-    .stadium-section {
-        padding: 2rem 1rem;
-        background-attachment: scroll;
-    }
-    
-    .stadium-section h2 {
-        font-size: 1.8rem;
-    }
-    
-    .stadium-description, .team-photo-caption {
+        padding: 0.8rem 1.2rem;
         font-size: 1rem;
     }
     
+    .btn {
+        padding: 1rem 1.8rem;
+        font-size: 1rem;
+    }
+    
+    .management-grid {
+        padding: 2rem;
+    }
+    
+    .stadium-section {
+        padding: 3rem 1.5rem;
+    }
+    
+    .news-grid {
+        padding: 2rem;
+    }
+    
+    .news-card h3 {
+        font-size: 1.25rem;
+        padding: 1.5rem;
+    }
+}
+
+@media (min-width: 768px) {
+    .club-header {
+        padding: 2rem 3rem;
+    }
+    
+    .header-logo {
+        width: 180px;
+        height: 180px;
+    }
+    
+    .club-header h1 {
+        font-size: 3rem;
+    }
+    
+    .club-motto {
+        font-size: 1.5rem;
+    }
+    
+    .madrid-time {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        margin: 0;
+    }
+    
     nav ul {
-        flex-direction: column;
-        align-items: center;
-        gap: 8px;
-        padding: 0.5rem;
+        gap: 15px;
     }
     
-    nav a {
-        width: 90%;
-        padding: 0.6rem 0;
-        font-size: 0.9rem;
+    .management-grid {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     }
     
-    .more-news-buttons h2 {
-        font-size: 1.8rem;
+    .stadium-section h2 {
+        font-size: 2.5rem;
+    }
+    
+    .stadium-container, .team-photo {
+        max-width: 800px;
+    }
+    
+    .news-grid {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    }
+    
+    .news-buttons-container {
+        flex-wrap: nowrap;
+        gap: 1.5rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .club-header {
+        padding: 2rem 4rem;
+    }
+    
+    .header-logo {
+        width: 200px;
+        height: 200px;
+    }
+    
+    .management-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    .stadium-section {
+        padding: 4rem 2rem;
+    }
+    
+    .theme-toggle {
+        width: 50px;
+        height: 50px;
+    }
+}
+
+@media (max-width: 480px) {
+    .news-card img {
+        height: 180px;
+    }
+    
+    .news-card h3 {
+        font-size: 1rem;
+        padding: 1rem;
     }
     
     .news-buttons-container {
@@ -517,45 +504,6 @@ footer {
     
     .news-buttons-container .btn {
         width: 100%;
-        max-width: 300px;
-    }
-    
-    .theme-toggle {
-        width: 40px;
-        height: 40px;
-        bottom: 15px;
-        right: 15px;
-    }
-    
-    .theme-icon {
-        font-size: 1.2rem;
-    }
-}
-
-@media (max-width: 480px) {
-    h1 { font-size: 1.8rem; }
-    h2 { font-size: 1.5rem; }
-    h3 { font-size: 1.2rem; }
-    
-    .header-logo {
-        width: 80px;
-        height: 80px;
-    }
-    
-    .club-motto {
-        font-size: 1rem;
-    }
-    
-    .btn {
-        padding: 0.8rem 1.5rem;
-        font-size: 0.9rem;
-    }
-    
-    .stadium-section h2 {
-        font-size: 1.5rem;
-    }
-    
-    .more-news-buttons h2 {
-        font-size: 1.5rem;
+        max-width: 280px;
     }
 }
